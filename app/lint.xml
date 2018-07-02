@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!--忽略这个id-->
+    <issue id="IconMissingDensityFolder" severity="ignore" />
+    <!--特殊路径不检查-->
+    <issue id="UselessLeaf">
+        <ignore path="res/layout/main.xml" />
+    </issue>
+    <!--改变严重性-->
+    <issue id="HardcodedText" severity="error" />
+    <issue id="LogUtilsNotUsed" severity="error" />
+    <issue id="AttrNotPrefixed" severity="warning"/>
+    <issue id="NewThread" severity="warning"/>
+    <issue id="ShowToast" severity="error"/>
+    <issue id="ImageFileSizeOut" severity="error"/>
+</lint>

@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+dependencies {
+    compile 'com.android.tools.lint:lint-api:25.3.0'
+    compile 'com.android.tools.lint:lint-checks:25.3.0'
+}
+
+jar {
+    manifest {
+        attributes("Lint-Registry": "com.mistong.lintjar.MyIssueRegistry")
+    }
+}
+
+configurations {
+    lintChecks
+}
+
+dependencies {
+    lintChecks files(jar)
+}

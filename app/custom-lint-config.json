@@ -1,0 +1,6 @@
+{
+  "log-usage-message": "请勿使用android.util.Log，建议使用LogUtil工具类",
+  "attr-prefix-message": "You must prefix your custom attr by `mst`",
+  "image-file-maxsize": "80",
+  "new-thread-message": "请勿直接调用new Thread()，建议使用AsyncTask或统一的线程管理工具类"
+}
