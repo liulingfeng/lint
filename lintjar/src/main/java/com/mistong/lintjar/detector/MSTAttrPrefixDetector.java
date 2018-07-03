@@ -6,6 +6,7 @@ import com.android.tools.lint.detector.api.Context;
 import com.android.tools.lint.detector.api.Detector;
 import com.android.tools.lint.detector.api.Implementation;
 import com.android.tools.lint.detector.api.Issue;
+import com.android.tools.lint.detector.api.ResourceXmlDetector;
 import com.android.tools.lint.detector.api.Scope;
 import com.android.tools.lint.detector.api.Severity;
 import com.android.tools.lint.detector.api.XmlContext;
@@ -21,11 +22,12 @@ import java.util.Collections;
 
 import static com.android.SdkConstants.ATTR_NAME;
 import static com.android.SdkConstants.TAG_ATTR;
+import static com.android.SdkConstants.TAG_STRING;
 
-public class MSTAttrPrefixDetector extends Detector implements Detector.XmlScanner{
+public class MSTAttrPrefixDetector extends ResourceXmlDetector {
     public static final Issue ISSUE = Issue.create("AttrNotPrefixed",
-            "You must prefix your custom attr",
-            "We prefix all our attrs to avoid clashes.",
+            "string名字前面需要加前缀",
+            "string的name前面加前缀",
             Category.TYPOGRAPHY,
             5,
             Severity.WARNING,
@@ -52,7 +54,7 @@ public class MSTAttrPrefixDetector extends Detector implements Detector.XmlScann
     @Nullable
     @Override
     public Collection<String> getApplicableElements() {
-        return Collections.singletonList(TAG_ATTR);
+        return Collections.singletonList(TAG_STRING);
     }
 
     @Nullable
@@ -76,8 +78,8 @@ public class MSTAttrPrefixDetector extends Detector implements Detector.XmlScann
         final Attr attr = element.getAttributeNode(ATTR_NAME);
         if (attr != null) {
             String val = attr.getValue();
-            if (!val.startsWith("android:") || !val.startsWith("mst")) {
-                String msg = lintConfig.getConfig("attr-prefix-message");
+            if (!val.startsWith("android:") && !val.startsWith(lintConfig.getConfig("value-prefix"))) {
+                String msg = lintConfig.getConfig("value-prefix-message") + " "+lintConfig.getConfig("value-prefix");
                 context.report(ISSUE, attr, context.getLocation(attr), msg);
             }
         }

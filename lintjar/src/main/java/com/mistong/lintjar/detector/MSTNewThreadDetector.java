@@ -27,6 +27,7 @@ public class MSTNewThreadDetector extends Detector implements Detector.JavaPsiSc
             new Implementation(MSTNewThreadDetector.class, Scope.JAVA_FILE_SCOPE));
 
     private LintConfig lintConfig;
+
     @Override
     public void beforeCheckProject(Context context) {
         lintConfig = new LintConfig(context);
