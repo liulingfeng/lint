@@ -24,6 +24,10 @@ import static com.android.SdkConstants.ATTR_NAME;
 import static com.android.SdkConstants.TAG_ATTR;
 import static com.android.SdkConstants.TAG_STRING;
 
+/**
+ * library的string命名需要加前缀
+ *  防止资源冲突
+ */
 public class MSTAttrPrefixDetector extends ResourceXmlDetector {
     public static final Issue ISSUE = Issue.create("AttrNotPrefixed",
             "string名字前面需要加前缀",

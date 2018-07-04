@@ -1,22 +1,16 @@
 package com.mistong.lintjar.detector;
 
-import com.android.annotations.NonNull;
 import com.android.resources.ResourceFolderType;
 import com.android.tools.lint.detector.api.Category;
-import com.android.tools.lint.detector.api.Context;
-import com.android.tools.lint.detector.api.Detector;
 import com.android.tools.lint.detector.api.Implementation;
 import com.android.tools.lint.detector.api.Issue;
 import com.android.tools.lint.detector.api.ResourceXmlDetector;
 import com.android.tools.lint.detector.api.Scope;
 import com.android.tools.lint.detector.api.Severity;
 import com.android.tools.lint.detector.api.XmlContext;
-
 import org.w3c.dom.Attr;
-
 import java.util.Collection;
 import java.util.Collections;
-
 import static com.android.SdkConstants.VALUE_ID;
 
 /**

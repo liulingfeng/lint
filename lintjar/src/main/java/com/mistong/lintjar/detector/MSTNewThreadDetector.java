@@ -17,6 +17,9 @@ import com.mistong.lintjar.LintConfig;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 禁止直接创建线程
+ */
 public class MSTNewThreadDetector extends Detector implements Detector.JavaPsiScanner {
 
     public static final Issue ISSUE = Issue.create(

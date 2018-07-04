@@ -14,6 +14,7 @@ import com.mistong.lintjar.LintConfig;
 
 /**
  * 图片大小检测
+ * 之后引入项目的图片都需要控制大小
  */
 public class MSTImageFileDetector extends Detector implements Detector.BinaryResourceScanner {
     public static Issue ISSUE = Issue.create("ImageFileSizeOut",

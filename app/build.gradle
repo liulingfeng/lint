@@ -31,5 +31,6 @@ android.applicationVariants.all { variant ->
 }
 
 dependencies {
-    compile project(path: ":lintaar")
+    compile project(path: ':lintaar')
+    compile 'com.android.support:support-v4:27.1.1'
 }

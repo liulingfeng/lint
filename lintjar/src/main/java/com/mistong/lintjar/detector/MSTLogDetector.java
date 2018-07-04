@@ -21,6 +21,10 @@ import org.objectweb.asm.tree.MethodNode;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 使用封装的Logger打印工具
+ * 禁止使用Log
+ */
 public class MSTLogDetector extends Detector implements Detector.JavaPsiScanner{
     public static final Issue ISSUE = Issue.create(
             "LogUtilsNotUsed",
