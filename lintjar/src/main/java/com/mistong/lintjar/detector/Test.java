@@ -110,7 +110,6 @@ public class Test extends Detector implements Detector.JavaPsiScanner{
                 }
             } else {
                 Location location = context.getNameLocation(constructor);
-                // TODO: Use separate issue for this which isn't an error
                 String message = "Avoid non-default constructors in fragments: "
                         + "use a default constructor plus "
                         + "`Fragment#setArguments(Bundle)` instead";

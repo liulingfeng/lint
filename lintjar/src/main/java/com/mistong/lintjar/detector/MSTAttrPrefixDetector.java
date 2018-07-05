@@ -30,7 +30,7 @@ import static com.android.SdkConstants.TAG_STRING;
  */
 public class MSTAttrPrefixDetector extends ResourceXmlDetector {
     public static final Issue ISSUE = Issue.create("AttrNotPrefixed",
-            "string的那么需要前缀",
+            "string的name需要前缀",
             "组件化项目中不加前缀很容易出现资源冲突",
             Category.CORRECTNESS,
             6,
@@ -84,7 +84,7 @@ public class MSTAttrPrefixDetector extends ResourceXmlDetector {
             String val = attr.getValue();
             if (!"".equals(lintConfig.getConfig("value-prefix"))) {
                 if (!val.startsWith("android:") && !val.startsWith(lintConfig.getConfig("value-prefix"))) {
-                    String msg = "你需要在string的名字前加前缀" + " " + lintConfig.getConfig("value-prefix");
+                    String msg = "你需要在string的名字前加前缀" + lintConfig.getConfig("value-prefix");
                     context.report(ISSUE, attr, context.getLocation(attr), msg);
                 }
             }
