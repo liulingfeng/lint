@@ -17,7 +17,9 @@ import com.intellij.psi.PsiMethod;
 import com.intellij.psi.PsiMethodCallExpression;
 import com.intellij.psi.PsiModifierList;
 import com.intellij.psi.PsiType;
+import com.intellij.psi.PsiTypeCastExpression;
 import com.intellij.psi.PsiTypeElement;
+import com.intellij.psi.util.PsiTreeUtil;
 
 import java.util.Collections;
 import java.util.List;
@@ -40,9 +42,13 @@ public class MSTSerializableDetector extends Detector implements Detector.JavaPs
 
     @Override
     public void visitMethod(JavaContext context, JavaElementVisitor visitor, PsiMethodCallExpression call, PsiMethod method) {
-        PsiType psiType = method.getReturnType();
-        if(psiType!=null){
-            System.out.println(psiType.toString()+"德瑪西亞");
+//        PsiType psiType = method.getReturnType();
+//        if (psiType != null) {
+//            System.out.println(psiType.toString() + "德瑪西亞");
+//        }
+        PsiTypeCastExpression expression = PsiTreeUtil.getParentOfType(call, PsiTypeCastExpression.class, true);
+        if (expression != null) {
+            System.out.println(expression.getContext().getText());
         }
 //        if (psiClass != null) {
 //            PsiModifierList modifierList = psiClass.getModifierList();

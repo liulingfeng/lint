@@ -19,23 +19,34 @@ import com.mistong.lintjar.LintConfig;
 public class MSTImageFileDetector extends Detector implements Detector.BinaryResourceScanner {
     public static Issue ISSUE = Issue.create("ImageFileSizeOut",
             "图片资源过大",
-            "使用Tiny插件压缩一下图片",
+            "图片资源超过了项目限定的图片大小",
             Category.CORRECTNESS, 5, Severity.ERROR,
             new Implementation(MSTImageFileDetector.class, Scope.BINARY_RESOURCE_FILE_SCOPE));
 
     private String reportStr;
     private LintConfig lintConfig;
+    private int maxSize = 200;
 
     @Override
     public void beforeCheckProject(Context context) {
         lintConfig = new LintConfig(context);
-        reportStr = "图片文件过大: %d" + "KB,超过了项目限制的:" + lintConfig.getConfig("image-file-maxsize") + "KB,请进行压缩或找设计重新出图.";
+        if ("".equals(lintConfig.getConfig("image-file-maxsize"))) {
+            reportStr = "图片文件过大: %d" + "KB,超过了项目限制的:" + 200 + "KB,请进行压缩或找设计重新出图.";
+        } else {
+            maxSize = Integer.parseInt(lintConfig.getConfig("image-file-maxsize"));
+            reportStr = "图片文件过大: %d" + "KB,超过了项目限制的:" + lintConfig.getConfig("image-file-maxsize") + "KB,请进行压缩或找设计重新出图.";
+        }
     }
 
     @Override
     public void beforeCheckLibraryProject(Context context) {
         lintConfig = new LintConfig(context);
-        reportStr = "图片文件过大: %d" + "KB,超过了项目限制的:" + lintConfig.getConfig("image-file-maxsize") + "KB,请进行压缩或找设计重新出图.";
+        if ("".equals(lintConfig.getConfig("image-file-maxsize"))) {
+            reportStr = "图片文件过大: %d" + "KB,超过了项目限制的:" + 200 + "KB,请进行压缩或找设计重新出图.";
+        } else {
+            maxSize = Integer.parseInt(lintConfig.getConfig("image-file-maxsize"));
+            reportStr = "图片文件过大: %d" + "KB,超过了项目限制的:" + lintConfig.getConfig("image-file-maxsize") + "KB,请进行压缩或找设计重新出图.";
+        }
     }
 
     @Override
@@ -52,7 +63,8 @@ public class MSTImageFileDetector extends Detector implements Detector.BinaryRes
                 || filename.contains(".jpg")
                 ) {
             long fileSize = context.file.length() / 1024;
-            if (fileSize > Integer.parseInt(lintConfig.getConfig("image-file-maxsize"))) {
+
+            if (fileSize > maxSize) {
 
                 String repS = String.format(reportStr, fileSize);
 

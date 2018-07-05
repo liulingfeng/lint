@@ -26,14 +26,14 @@ import static com.android.SdkConstants.TAG_STRING;
 
 /**
  * library的string命名需要加前缀
- *  防止资源冲突
+ * 防止资源冲突
  */
 public class MSTAttrPrefixDetector extends ResourceXmlDetector {
     public static final Issue ISSUE = Issue.create("AttrNotPrefixed",
-            "string名字前面需要加前缀",
-            "string的name前面加前缀",
-            Category.TYPOGRAPHY,
-            5,
+            "string的那么需要前缀",
+            "组件化项目中不加前缀很容易出现资源冲突",
+            Category.CORRECTNESS,
+            6,
             Severity.WARNING,
             new Implementation(MSTAttrPrefixDetector.class,
                     Scope.RESOURCE_FILE_SCOPE));
@@ -82,9 +82,11 @@ public class MSTAttrPrefixDetector extends ResourceXmlDetector {
         final Attr attr = element.getAttributeNode(ATTR_NAME);
         if (attr != null) {
             String val = attr.getValue();
-            if (!val.startsWith("android:") && !val.startsWith(lintConfig.getConfig("value-prefix"))) {
-                String msg = lintConfig.getConfig("value-prefix-message") + " "+lintConfig.getConfig("value-prefix");
-                context.report(ISSUE, attr, context.getLocation(attr), msg);
+            if (!"".equals(lintConfig.getConfig("value-prefix"))) {
+                if (!val.startsWith("android:") && !val.startsWith(lintConfig.getConfig("value-prefix"))) {
+                    String msg = "你需要在string的名字前加前缀" + " " + lintConfig.getConfig("value-prefix");
+                    context.report(ISSUE, attr, context.getLocation(attr), msg);
+                }
             }
         }
         super.visitElement(context, element);

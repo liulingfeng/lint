@@ -25,21 +25,9 @@ public class MSTNewThreadDetector extends Detector implements Detector.JavaPsiSc
     public static final Issue ISSUE = Issue.create(
             "NewThread",
             "避免自己创建Thread",
-            "请勿直接调用new Thread()，建议使用AsyncTask或统一的线程管理工具类",
+            "自己创建Thread很容易导致一系列问题",
             Category.PERFORMANCE, 5, Severity.WARNING,
             new Implementation(MSTNewThreadDetector.class, Scope.JAVA_FILE_SCOPE));
-
-    private LintConfig lintConfig;
-
-    @Override
-    public void beforeCheckProject(Context context) {
-        lintConfig = new LintConfig(context);
-    }
-
-    @Override
-    public void beforeCheckLibraryProject(Context context) {
-        lintConfig = new LintConfig(context);
-    }
 
     @Override
     public List<String> getApplicableConstructorTypes() {
@@ -49,7 +37,6 @@ public class MSTNewThreadDetector extends Detector implements Detector.JavaPsiSc
     @Override
     public void visitConstructor(@NonNull JavaContext context, @com.android.annotations.Nullable JavaElementVisitor visitor,
                                  @NonNull PsiNewExpression node, @NonNull PsiMethod constructor) {
-        String msg = lintConfig.getConfig("new-thread-message");
-        context.report(ISSUE, node, context.getLocation(node), msg);
+        context.report(ISSUE, node, context.getLocation(node), "请勿直接调用new Thread()，建议使用AsyncTask或统一的线程管理工具类");
     }
 }

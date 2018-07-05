@@ -65,14 +65,14 @@ public class MSTViewIdNameDetector extends ResourceXmlDetector{
     private static final String ID_LISTVIEW = "ListView";
 
     private static final String ANDROID_ID = "android:id";
-    String reportStrFormat = "FBI WARING!: {%s} Prefix Must Be: {%s}";
+    String reportStrFormat = "id命名错误!: {%s} 前缀必须为: {%s}";
 
     public static final Issue ISSUE = Issue.create(
             "IdNameErrors",
-            "Name should be in accordance with the specification",
-            "Name should be in accordance with the specification,that is a good habit",
-            Category.LINT,
-            9,
+            "viewId命名不规范",
+            "viewId命名请遵循阿里规范",
+            Category.CORRECTNESS,
+            5,
             Severity.WARNING,
             new Implementation(
                     MSTViewIdNameDetector.class,
@@ -96,8 +96,6 @@ public class MSTViewIdNameDetector extends ResourceXmlDetector{
 
         String prnMain = context.getMainProject().getDir().getPath();
         String prnCur = context.getProject().getDir().getPath();
-        //only care id node
-        //only care xml file that only in usefull ,exclude directory Build
         if (attribute.getName().startsWith(ANDROID_ID) && prnMain.equals(prnCur)) {
             checkNameSpace(context, attribute);
         }
@@ -105,7 +103,6 @@ public class MSTViewIdNameDetector extends ResourceXmlDetector{
 
     private void checkNameSpace(XmlContext context, Attr attribute) {
         String tagName = attribute.getOwnerElement().getTagName();
-        //layout
         int startIndex = 0;
         String idName = attribute.getValue().substring(5);
         String attrRight = "";

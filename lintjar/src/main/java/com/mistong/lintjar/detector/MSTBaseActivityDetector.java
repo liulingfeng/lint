@@ -21,8 +21,8 @@ import java.util.List;
  */
 public class MSTBaseActivityDetector extends Detector implements Detector.JavaPsiScanner {
     public static Issue ISSUE = Issue.create("BaseActivityExtends",
-            "继承BasePresenterActivity",
-            "Activity需要继承BasePresenterActivity",
+            "Activity继承BasePresenterActivity",
+            "Activity需要继承BasePresenterActivity进行统一管理",
             Category.CORRECTNESS, 5, Severity.ERROR,
             new Implementation(MSTBaseActivityDetector.class, Scope.JAVA_FILE_SCOPE));
 
@@ -64,7 +64,7 @@ public class MSTBaseActivityDetector extends Detector implements Detector.JavaPs
                         isFound = name.equals("BasePresenterActivity");
                 }
                 if (!isFound) {
-                    context.report(ISSUE, context.getLocation(aClass), "是activity但是没有继承BasePresenterActivity");
+                    context.report(ISSUE, context.getLocation(aClass), "当前Activity没有继承BasePresenterActivity");
                 }
             }
 

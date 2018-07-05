@@ -22,8 +22,8 @@ import java.util.List;
  */
 public class MSTBroadcastDetector extends Detector implements Detector.JavaPsiScanner {
     public static Issue ISSUE = Issue.create("BroadcastTwin",
-            "广播动态注册的情况下onDestroy需要反注册",
-            "广播反注册",
+            "广播没有注销",
+            "广播动态注册的情况下onDestroy需要注销，防止内存泄漏",
             Category.CORRECTNESS, 5, Severity.ERROR,
             new Implementation(MSTBroadcastDetector.class, Scope.JAVA_FILE_SCOPE));
 
@@ -45,7 +45,7 @@ public class MSTBroadcastDetector extends Detector implements Detector.JavaPsiSc
                         methodChild.accept(finder);
 
                         if (!finder.isUnregisterCalled()) {
-                            context.report(ISSUE, call, context.getLocation(call.getMethodExpression()), "在onDestroy反注册一下");
+                            context.report(ISSUE, call, context.getLocation(call.getMethodExpression()), "动态注册的广播没有在onDestroy中注销");
                         } else {
                             super.visitMethod(context, visitor, call, method);
                         }

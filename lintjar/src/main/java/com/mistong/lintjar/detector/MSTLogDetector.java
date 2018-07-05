@@ -28,9 +28,9 @@ import java.util.List;
 public class MSTLogDetector extends Detector implements Detector.JavaPsiScanner{
     public static final Issue ISSUE = Issue.create(
             "LogUtilsNotUsed",
-            "避免使用Log/System.out.println",
+            "避免使用Log",
             "使用Ln，防止在正式包打印log",
-            Category.MESSAGES, 9, Severity.ERROR,
+            Category.SECURITY, 7, Severity.ERROR,
             new Implementation(MSTLogDetector.class, Scope.JAVA_FILE_SCOPE));
 
     private LintConfig lintConfig;
@@ -59,7 +59,12 @@ public class MSTLogDetector extends Detector implements Detector.JavaPsiScanner{
     public void visitMethod(JavaContext context, JavaElementVisitor visitor, PsiMethodCallExpression call, PsiMethod method) {
         if (context.getEvaluator().isMemberInClass(method, "android.util.Log")) {
             String msg = lintConfig.getConfig("log-usage-message");
-            context.report(ISSUE, call, context.getLocation(call.getMethodExpression()), msg);
+            if("".equals(msg)){
+                context.report(ISSUE, call, context.getLocation(call.getMethodExpression()), "请勿使用android.util.Log，建议使用LogUtil工具类");
+            }else {
+                context.report(ISSUE, call, context.getLocation(call.getMethodExpression()), msg);
+            }
+
         }
     }
 }
