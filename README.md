@@ -97,5 +97,5 @@ lintOptions {
 [简书Android Lint](https://www.jianshu.com/p/b4c44e62d652)</br>
 [Psi查询文档](http://www.jetbrains.org/intellij/sdk/docs/basics/architectural_overview/psi_files.html)</br>
 [Android自定义Lint实践](https://tech.meituan.com/android_custom_lint.html)</br>
-[官方Detector](https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-checks/src/main/java/com/android/tools/lint/checks)
+[官方Detector](https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-checks/src/main/java/com/android/tools/lint/checks)</br>
 [Uast树版lint](https://github.com/googlesamples/android-custom-lint-rules/blob/master/android-studio-3/checks/build.gradle)
