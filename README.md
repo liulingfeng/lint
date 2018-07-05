@@ -35,8 +35,8 @@ lintOptions {
 </pre>
 
 # lint.xml可配置项
-<pre>
-<lint>
+
+> <lint>
     <!--忽略这个id-->
     <issue id="IconMissingDensityFolder" severity="ignore" />
     <!--特殊路径不检查-->
@@ -51,7 +51,6 @@ lintOptions {
     <issue id="ShowToast" severity="error"/>
     <issue id="ImageFileSizeOut" severity="error"/>
 </lint>
-</pre>
 
 # custome-lint-config可配置项
 <pre>
