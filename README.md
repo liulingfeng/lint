@@ -88,14 +88,13 @@ lintOptions {
 
 # 参考
 
-https://www.imooc.com/article/30302?block_id=tuijian_wz
-https://www.colabug.com/2109876.html
-https://tech.meituan.com/waimai-android-lint.html
-http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0322/4070.html
-https://developer.android.com/studio/write/lint
-https://static.javadoc.io/com.android.tools.lint/lint-api/25.3.0/com/android/tools/lint/detector/api/Detector.html
-checks/src/main/java/com/android/tools/lint/checks
-https://www.jianshu.com/p/b4c44e62d652
-http://www.jetbrains.org/intellij/sdk/docs/basics/architectural_overview/psi_files.html
-https://tech.meituan.com/android_custom_lint.html
-https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-
+[慕课网Android自定义Lint实践](https://www.imooc.com/article/30302?block_id=tuijian_wz)
+[自定义Lint调试与开发](https://www.colabug.com/2109876.html)
+[美团外卖Android Lint代码检查实践](https://tech.meituan.com/waimai-android-lint.html)
+[Android自定义Lint实践](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0322/4070.html)
+[使用 Lint 改进您的代码](https://developer.android.com/studio/write/lint)
+[Detector api](https://static.javadoc.io/com.android.tools.lint/lint-api/25.3.0/com/android/tools/lint/detector/api/Detector.html)
+[简书Android Lint](https://www.jianshu.com/p/b4c44e62d652)
+[Psi查询文档](http://www.jetbrains.org/intellij/sdk/docs/basics/architectural_overview/psi_files.html)
+[Android自定义Lint实践](https://tech.meituan.com/android_custom_lint.html)
+[官方Detector](https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-checks/src/main/java/com/android/tools/lint/checks)
