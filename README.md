@@ -19,7 +19,46 @@ android.applicationVariants.all { variant ->
     }
 }
 
-另外可以在custome-lint-config.json中对一些变量进行设置。提高灵活性
+另外可以在custome-lint-config.json中对一些变量进行设置。提高灵活性。命令行执行命名./gradlew lint 运行
+</pre>
+
+# lintOptions可配置项
+<pre>
+lintOptions {
+    disable 'TypographyFractions','TypographyQuotes'
+    enable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
+    check 'NewApi', 'InlinedApi'
+    quiet true
+    abortOnError false //遇到错误gradle暂停
+    ignoreWarnings true //忽略所有warning的检查
+  }
+</pre>
+
+# lint.xml可配置项
+
+> <lint>
+    <!--忽略这个id-->
+    <issue id="IconMissingDensityFolder" severity="ignore" />
+    <!--特殊路径不检查-->
+    <issue id="UselessLeaf">
+        <ignore path="res/layout/main.xml" />
+    </issue>
+    <!--改变严重性-->
+    <issue id="HardcodedText" severity="error" />
+    <issue id="LogUtilsNotUsed" severity="error" />
+    <issue id="AttrNotPrefixed" severity="warning"/>
+    <issue id="NewThread" severity="warning"/>
+    <issue id="ShowToast" severity="error"/>
+    <issue id="ImageFileSizeOut" severity="error"/>
+</lint>
+
+# custome-lint-config可配置项
+<pre>
+{
+  "log-usage-message": "请勿使用android.util.Log，建议使用Logger工具类", //log打印工具可替换，根据项目来定
+  "value-prefix": "app_", //string前缀，每个module可单独配置
+  "image-file-maxsize": "100" //图片文件限制的大小
+}
 </pre>
 
 # 目前支持
