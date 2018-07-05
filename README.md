@@ -85,6 +85,7 @@ lintOptions {
 
 # 知识点
  <img src="https://github.com/liulingfeng/lint/blob/master/screenshot/lint.png" width="300" height="530">
+
 # 参考
 
 https://www.imooc.com/article/30302?block_id=tuijian_wz
