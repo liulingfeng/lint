@@ -37,17 +37,19 @@ lintOptions {
 # lint.xml可配置项
 <pre>
 <lint>
-    <!-- 忽略指定Issueid的整个项目的检查 -->
+    <!--忽略这个id-->
     <issue id="IconMissingDensityFolder" severity="ignore" />
-
-    <!-- 忽略指定Issueid的指定文件的检查 -->
-    <issue id="ObsoleteLayoutParam">
-        <ignore path="res/layout/activation.xml" />
-        <ignore path="res/layout-xlarge/activation.xml" />
+    <!--特殊路径不检查-->
+    <issue id="UselessLeaf">
+        <ignore path="res/layout/main.xml" />
     </issue>
-
-    <!-- 更改指定issue的Severity -->
+    <!--改变严重性-->
     <issue id="HardcodedText" severity="error" />
+    <issue id="LogUtilsNotUsed" severity="error" />
+    <issue id="AttrNotPrefixed" severity="warning"/>
+    <issue id="NewThread" severity="warning"/>
+    <issue id="ShowToast" severity="error"/>
+    <issue id="ImageFileSizeOut" severity="error"/>
 </lint>
 </pre>
 
