@@ -84,7 +84,7 @@ lintOptions {
     view的id命名规范，参照阿里的命名规范
 
 # 知识点
- <img src="https://github.com/liulingfeng/lint/blob/master/screenshot/lint.jpg" width="300" height="530">
+ <img src="https://github.com/liulingfeng/lint/blob/master/screenshot/lint.png" width="300" height="530">
 # 参考
 https://www.imooc.com/article/30302?block_id=tuijian_wz
 https://www.colabug.com/2109876.html
