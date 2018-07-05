@@ -25,7 +25,7 @@ android.applicationVariants.all { variant ->
 # lintOptions可配置项
 <pre>
 lintOptions {
-   // true--关闭lint报告的分析进度
+        // true--关闭lint报告的分析进度
         quiet true
         // true--错误发生后停止gradle构建
         abortOnError false
