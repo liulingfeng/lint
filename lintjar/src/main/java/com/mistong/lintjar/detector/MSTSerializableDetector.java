@@ -3,6 +3,7 @@ package com.mistong.lintjar.detector;
 import com.android.tools.lint.checks.HandlerDetector;
 import com.android.tools.lint.checks.OverrideConcreteDetector;
 import com.android.tools.lint.checks.OverrideDetector;
+import com.android.tools.lint.checks.ToastDetector;
 import com.android.tools.lint.detector.api.Category;
 import com.android.tools.lint.detector.api.Detector;
 import com.android.tools.lint.detector.api.Implementation;
@@ -29,9 +30,9 @@ import java.util.List;
  */
 
 public class MSTSerializableDetector extends Detector implements Detector.JavaPsiScanner {
-    public static Issue ISSUE = Issue.create("Serializable",
-            "没有实现Serializable",
-            "实现Serializable",
+    public static Issue ISSUE = Issue.create("EntitySerializable",
+            "实体类没有实现序列化",
+            "序列化的实体对象没有实现序列化",
             Category.CORRECTNESS, 5, Severity.ERROR,
             new Implementation(MSTSerializableDetector.class, Scope.JAVA_FILE_SCOPE));
 
@@ -42,24 +43,15 @@ public class MSTSerializableDetector extends Detector implements Detector.JavaPs
 
     @Override
     public void visitMethod(JavaContext context, JavaElementVisitor visitor, PsiMethodCallExpression call, PsiMethod method) {
-//        PsiType psiType = method.getReturnType();
-//        if (psiType != null) {
-//            System.out.println(psiType.toString() + "德瑪西亞");
-//        }
-        PsiTypeCastExpression expression = PsiTreeUtil.getParentOfType(call, PsiTypeCastExpression.class, true);
-        if (expression != null) {
-            System.out.println(expression.getContext().getText());
+        PsiClass psiClass = method.getContainingClass();
+        if(psiClass!=null){
+            if(psiClass.getName()!=null){
+                if(psiClass.getName().contains("Intent")){
+                    PsiType psiType = method.getReturnType();
+                    System.out.println(psiType.toString());
+                }
+            }
         }
-//        if (psiClass != null) {
-//            PsiModifierList modifierList = psiClass.getModifierList();
-//            if (modifierList == null) {
-//                return;
-//            }
-//            System.out.println("德瑪西亞");
-//            if (!"@Keep".equals(modifierList.getText())) {
-//                context.report(ISSUE, context.getLocation(call.getMethodExpression()), "没有实现o");
-//            }
-//        }
         super.visitMethod(context, visitor, call, method);
     }
 }

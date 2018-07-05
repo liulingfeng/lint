@@ -8,6 +8,7 @@ import com.mistong.lintjar.detector.MSTBroadcastDetector;
 import com.mistong.lintjar.detector.MSTImageFileDetector;
 import com.mistong.lintjar.detector.MSTLogDetector;
 import com.mistong.lintjar.detector.MSTNewThreadDetector;
+import com.mistong.lintjar.detector.MSTParseDetector;
 import com.mistong.lintjar.detector.MSTSerializableDetector;
 import com.mistong.lintjar.detector.MSTViewIdNameDetector;
 import com.mistong.lintjar.detector.Test;
@@ -32,7 +33,8 @@ public class MyIssueRegistry extends IssueRegistry {
                 MSTBaseActivityDetector.ISSUE,
                 Test.ISSUE,
                 MSTBroadcastDetector.ISSUE,
-                MSTSerializableDetector.ISSUE
+                MSTSerializableDetector.ISSUE,
+                MSTParseDetector.ISSUE
                 );
     }
 }

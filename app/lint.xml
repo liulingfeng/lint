@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lint>
-    <!--&lt;!&ndash;忽略这个id&ndash;&gt;-->
-    <!--<issue id="IconMissingDensityFolder" severity="ignore" />-->
-    <!--&lt;!&ndash;特殊路径不检查&ndash;&gt;-->
-    <!--<issue id="UselessLeaf">-->
-        <!--<ignore path="res/layout/main.xml" />-->
-    <!--</issue>-->
-    <!--&lt;!&ndash;改变严重性&ndash;&gt;-->
-    <!--<issue id="HardcodedText" severity="error" />-->
-    <!--<issue id="LogUtilsNotUsed" severity="error" />-->
-    <!--<issue id="AttrNotPrefixed" severity="warning"/>-->
-    <!--<issue id="NewThread" severity="warning"/>-->
-    <!--<issue id="ShowToast" severity="error"/>-->
-    <!--<issue id="ImageFileSizeOut" severity="error"/>-->
+    <!--忽略这个id-->
+    <issue id="IconMissingDensityFolder" severity="ignore" />
+    <!--特殊路径不检查-->
+    <issue id="UselessLeaf">
+        <ignore path="res/layout/main.xml" />
+    </issue>
+    <!--改变严重性-->
+    <issue id="HardcodedText" severity="error" />
+    <issue id="LogUtilsNotUsed" severity="error" />
+    <issue id="AttrNotPrefixed" severity="warning"/>
+    <issue id="NewThread" severity="warning"/>
+    <issue id="ShowToast" severity="error"/>
+    <issue id="ImageFileSizeOut" severity="error"/>
 </lint>

@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -30,9 +31,10 @@ public class MainActivity extends Activity {
 
             }
         }).run();
-        Toast.makeText(this, "你好啊", Toast.LENGTH_SHORT);
 
         User user = (User) getIntent().getSerializableExtra("user");
+
+        Color.parseColor("#fffff");
     }
 
     @Override
