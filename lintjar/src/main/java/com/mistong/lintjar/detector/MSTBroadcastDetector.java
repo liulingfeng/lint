@@ -25,7 +25,7 @@ public class MSTBroadcastDetector extends Detector implements Detector.JavaPsiSc
             "广播没有注销",
             "广播动态注册的情况下onDestroy需要注销，防止内存泄漏",
             Category.CORRECTNESS, 5, Severity.ERROR,
-            new Implementation(MSTBroadcastDetector.class, Scope.JAVA_FILE_SCOPE));
+            new Implementation(MSTBroadcastDetector.class, Scope.JAVA_FILE_SCOPE)).addMoreInfo("https://github.com/liulingfeng/lint");
 
     @Override
     public List<String> getApplicableMethodNames() {

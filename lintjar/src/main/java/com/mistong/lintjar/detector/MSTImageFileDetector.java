@@ -21,7 +21,7 @@ public class MSTImageFileDetector extends Detector implements Detector.BinaryRes
             "图片资源过大",
             "图片资源超过了项目限定的图片大小",
             Category.CORRECTNESS, 5, Severity.ERROR,
-            new Implementation(MSTImageFileDetector.class, Scope.BINARY_RESOURCE_FILE_SCOPE));
+            new Implementation(MSTImageFileDetector.class, Scope.BINARY_RESOURCE_FILE_SCOPE)).addMoreInfo("https://github.com/liulingfeng/lint");
 
     private String reportStr;
     private LintConfig lintConfig;

@@ -31,7 +31,7 @@ public class MSTLogDetector extends Detector implements Detector.JavaPsiScanner{
             "避免使用Log",
             "使用Ln，防止在正式包打印log",
             Category.SECURITY, 7, Severity.ERROR,
-            new Implementation(MSTLogDetector.class, Scope.JAVA_FILE_SCOPE));
+            new Implementation(MSTLogDetector.class, Scope.JAVA_FILE_SCOPE)).addMoreInfo("https://github.com/liulingfeng/lint");
 
     private LintConfig lintConfig;
 

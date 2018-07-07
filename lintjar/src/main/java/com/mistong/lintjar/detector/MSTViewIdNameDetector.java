@@ -8,16 +8,19 @@ import com.android.tools.lint.detector.api.ResourceXmlDetector;
 import com.android.tools.lint.detector.api.Scope;
 import com.android.tools.lint.detector.api.Severity;
 import com.android.tools.lint.detector.api.XmlContext;
+
 import org.w3c.dom.Attr;
+
 import java.util.Collection;
 import java.util.Collections;
+
 import static com.android.SdkConstants.VALUE_ID;
 
 /**
  * view id的规范
  * 依据阿里的代码规范
  */
-public class MSTViewIdNameDetector extends ResourceXmlDetector{
+public class MSTViewIdNameDetector extends ResourceXmlDetector {
     /*linearlayout*/
     private static final String IDHEADER_LINEARLAYOUT_ABBREVIATION = "ll";
     private static final String ID_LAYOUT_LINEARLAYOUT = "LinearLayout";
@@ -78,7 +81,7 @@ public class MSTViewIdNameDetector extends ResourceXmlDetector{
                     MSTViewIdNameDetector.class,
                     Scope.RESOURCE_FILE_SCOPE
             )
-    );
+    ).addMoreInfo("https://github.com/liulingfeng/lint");
 
     @Override
     public boolean appliesTo(ResourceFolderType folderType) {

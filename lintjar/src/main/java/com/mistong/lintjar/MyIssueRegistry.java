@@ -11,8 +11,6 @@ import com.mistong.lintjar.detector.MSTNewThreadDetector;
 import com.mistong.lintjar.detector.MSTParseDetector;
 import com.mistong.lintjar.detector.MSTSerializableDetector;
 import com.mistong.lintjar.detector.MSTViewIdNameDetector;
-import com.mistong.lintjar.detector.Test;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,7 +29,6 @@ public class MyIssueRegistry extends IssueRegistry {
                 MSTNewThreadDetector.ISSUE,
                 MSTViewIdNameDetector.ISSUE,
                 MSTBaseActivityDetector.ISSUE,
-                Test.ISSUE,
                 MSTBroadcastDetector.ISSUE,
                 MSTSerializableDetector.ISSUE,
                 MSTParseDetector.ISSUE

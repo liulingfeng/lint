@@ -27,7 +27,7 @@ public class MSTNewThreadDetector extends Detector implements Detector.JavaPsiSc
             "避免自己创建Thread",
             "自己创建Thread很容易导致一系列问题",
             Category.PERFORMANCE, 5, Severity.WARNING,
-            new Implementation(MSTNewThreadDetector.class, Scope.JAVA_FILE_SCOPE));
+            new Implementation(MSTNewThreadDetector.class, Scope.JAVA_FILE_SCOPE)).addMoreInfo("https://github.com/liulingfeng/lint");
 
     @Override
     public List<String> getApplicableConstructorTypes() {

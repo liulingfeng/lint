@@ -32,8 +32,8 @@ public class MainActivity extends Activity {
             }
         }).run();
 
-        User user = (User) getIntent().getSerializableExtra("user");
-
+        Intent intent = getIntent();
+        User user = (User)intent.getSerializableExtra("user");
         Color.parseColor("#fffff");
     }
 

@@ -24,7 +24,7 @@ public class MSTBaseActivityDetector extends Detector implements Detector.JavaPs
             "Activity继承BasePresenterActivity",
             "Activity需要继承BasePresenterActivity进行统一管理",
             Category.CORRECTNESS, 5, Severity.ERROR,
-            new Implementation(MSTBaseActivityDetector.class, Scope.JAVA_FILE_SCOPE));
+            new Implementation(MSTBaseActivityDetector.class, Scope.JAVA_FILE_SCOPE)).addMoreInfo("https://github.com/liulingfeng/lint");
 
     @Override
     public List<Class<? extends PsiElement>> getApplicablePsiTypes() {

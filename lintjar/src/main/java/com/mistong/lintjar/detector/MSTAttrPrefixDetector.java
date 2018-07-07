@@ -36,7 +36,7 @@ public class MSTAttrPrefixDetector extends ResourceXmlDetector {
             6,
             Severity.WARNING,
             new Implementation(MSTAttrPrefixDetector.class,
-                    Scope.RESOURCE_FILE_SCOPE));
+                    Scope.RESOURCE_FILE_SCOPE)).addMoreInfo("https://github.com/liulingfeng/lint");
 
     private LintConfig lintConfig;
 
