@@ -2,7 +2,7 @@
 自定义lint规则
 
 # 使用方式
-可以项目依赖lintaar，也可以吧lintaar打包成maven使用。然后在app的build.gradle下进行如下配置
+可以项目依赖lintaar，也可以把lintaar打包成maven使用。然后在app的build.gradle下进行如下配置
 <pre>
  android节点下
   
