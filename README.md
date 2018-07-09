@@ -122,6 +122,9 @@ lintOptions {
     
 ### MSTViewIdNameDetector
     view的id命名规范，参照阿里的命名规范
+    
+### MSTSerializableDetector
+    实体类是否序列化的检查，防止混淆后出错
 
 # 知识点
  <img src="https://github.com/liulingfeng/lint/blob/master/screenshot/lint.png" width="300" height="530">
